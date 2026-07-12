@@ -1,1 +1,11 @@
-[]
+{
+  "id": 1783860816174,
+  "title": "Supermarket Financial Report",
+  "desc": "A supermarket chain financial report of Myanmar.",
+  "tags": [
+    "PowerBi"
+  ],
+  "images": [
+    "images/supermarket-financial-report-1.png"
+  ]
+}
