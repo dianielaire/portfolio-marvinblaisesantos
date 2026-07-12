@@ -30,4 +30,26 @@
   "images": [
     "images/e-commerce-site-1.png"
   ]
+},
+{
+  "id": 1783868406650,
+  "title": "P-Chart Data Analysis Template",
+  "desc": "A Excel template designed to use for P-Chart data analysis.",
+  "tags": [
+    "Excel",
+    "VBA Macro"
+  ],
+  "images": [
+    "images/p-chart-data-analysis-template-1.png"
+  ]
+},{
+  "id": 1783867979382,
+  "title": "Janversal Website",
+  "desc": "JANVERSAL is a company based in the United States that specializes in providing natural and organic products, including food and health care items.",
+  "tags": [
+    "Wix"
+  ],
+  "images": [
+    "images/janversal-website-1.png"
+  ]
 }]
