@@ -62,4 +62,14 @@
   "images": [
     "images/consulting-project-dashboard-1.png"
   ]
+},{
+  "id": 1783872101005,
+  "title": "Sales & Target Performance Dashboard",
+  "desc": "An Excel dashboard about Sales & Target Performance Dashboard",
+  "tags": [
+    "Excel"
+  ],
+  "images": [
+    "images/sales-target-performance-dashboard-1.png"
+  ]
 }]
