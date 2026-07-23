@@ -849,14 +849,14 @@
         tagsWrap.appendChild(chip);
       });
 
-      const del = document.createElement('button');
-      del.className = 'proj-del';
-      del.type = 'button';
-      del.textContent = p.isDraft ? 'discard draft' : 'remove';
-      del.addEventListener('click', () => {
-        projects = projects.filter(x => x.id !== p.id);
-        renderProjects();
-      });
+      // const del = document.createElement('button');
+      // del.className = 'proj-del';
+      // del.type = 'button';
+      // del.textContent = p.isDraft ? 'discard draft' : 'remove';
+      // del.addEventListener('click', () => {
+      //   projects = projects.filter(x => x.id !== p.id);
+      //   renderProjects();
+      // });
 
       body.append(title, desc, tagsWrap, del);
       card.append(media, body);
