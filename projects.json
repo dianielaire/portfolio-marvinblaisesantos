@@ -72,4 +72,16 @@
   "images": [
     "images/sales-target-performance-dashboard-1.png"
   ]
+},{
+  "id": 1783872101001,
+  "title": "Defective Parts Monitoring System",
+  "desc": "A system that monitors deficiencies in production assemblies. Improved data analysis and lot traceability. Decreased time consumption in generating daily reports.",
+  "tags": [
+    "Visual Basic",
+    "Excel",
+    "MS Access"
+  ],
+  "images": [
+    "images/dpms.png"
+  ]
 }]
