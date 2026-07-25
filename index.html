@@ -696,6 +696,15 @@
   var lbTitle = '';
   var lbIndex = 0;
 
+   // ---- Lightbox ----
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxIdx = document.getElementById('lightboxIdx');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
   // mobile nav
   const menuBtn = document.getElementById('menuBtn');
   const navlinks = document.getElementById('navlinks');
@@ -919,14 +928,7 @@
       grid.appendChild(card);
     });
   }
-   // ---- Lightbox ----
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxTitle = document.getElementById('lightboxTitle');
-  const lightboxIdx = document.getElementById('lightboxIdx');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxPrev = document.getElementById('lightboxPrev');
-  const lightboxNext = document.getElementById('lightboxNext');
+  
  
   function openLightbox(project, startIndex){
     lbImages = project.images;
