@@ -271,6 +271,38 @@
   }
   .proj-del:hover{border-color:var(--danger);}
 
+  /* ---------- LIGHTBOX ---------- */
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(5,7,10,0.92);
+    display:none;align-items:center;justify-content:center;
+    padding:40px 20px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox-inner{max-width:min(90vw,900px);max-height:85vh;position:relative;text-align:center;}
+  .lightbox-inner img{max-width:100%;max-height:75vh;border-radius:8px;border:1px solid var(--border);object-fit:contain;}
+  .lightbox-caption{font-family:var(--font-mono);font-size:13px;color:var(--text-dim);margin-top:14px;}
+  .lightbox-caption .idx{color:var(--accent);}
+  .lightbox-close{
+    position:absolute;top:-46px;right:0;
+    background:var(--surface);border:1px solid var(--border);color:var(--text);
+    width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;
+  }
+  .lightbox-close:hover{border-color:var(--accent-3);color:var(--accent-3);}
+  .lightbox-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:var(--surface);border:1px solid var(--border);color:var(--text);
+    width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:18px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-nav:hover{border-color:var(--accent-3);color:var(--accent-3);}
+  .lightbox-prev{left:-54px;}
+  .lightbox-next{right:-54px;}
+  @media(max-width:720px){
+    .lightbox-prev{left:6px;}
+    .lightbox-next{right:6px;}
+  }
+
   .empty-state{
     border:1px dashed var(--border);border-radius:10px;padding:40px 20px;text-align:center;
     font-family:var(--font-mono);color:var(--text-dim);font-size:13.5px;
@@ -869,6 +901,52 @@
       grid.appendChild(card);
     });
   }
+   // ---- Lightbox ----
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxIdx = document.getElementById('lightboxIdx');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+ 
+  let lbImages = [];
+  let lbTitle = '';
+  let lbIndex = 0;
+ 
+  function openLightbox(project, startIndex){
+    lbImages = project.images;
+    lbTitle = project.title;
+    lbIndex = startIndex;
+    updateLightbox();
+    lightbox.classList.add('open');
+  }
+ 
+  function updateLightbox(){
+    lightboxImg.src = lbImages[lbIndex];
+    lightboxImg.alt = lbTitle;
+    lightboxTitle.textContent = lbTitle;
+    lightboxIdx.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+    const multi = lbImages.length > 1;
+    lightboxPrev.style.display = multi ? 'flex' : 'none';
+    lightboxNext.style.display = multi ? 'flex' : 'none';
+  }
+ 
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+  }
+ 
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) closeLightbox(); });
+  lightboxPrev.addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightbox(); });
+  lightboxNext.addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; updateLightbox(); });
+ 
+  document.addEventListener('keydown', e => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') lightboxPrev.click();
+    if(e.key === 'ArrowRight') lightboxNext.click();
+  });
 </script>
 </body>
 </html>
