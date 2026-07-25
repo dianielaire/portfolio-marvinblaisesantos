@@ -691,6 +691,11 @@
 </div>
 
 <script>
+
+  var lbImages = [];
+  var lbTitle = '';
+  var lbIndex = 0;
+
   // mobile nav
   const menuBtn = document.getElementById('menuBtn');
   const navlinks = document.getElementById('navlinks');
@@ -922,10 +927,6 @@
   const lightboxClose = document.getElementById('lightboxClose');
   const lightboxPrev = document.getElementById('lightboxPrev');
   const lightboxNext = document.getElementById('lightboxNext');
- 
-  let lbImages = [];
-  let lbTitle = '';
-  let lbIndex = 0;
  
   function openLightbox(project, startIndex){
     lbImages = project.images;
