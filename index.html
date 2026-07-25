@@ -680,6 +680,16 @@
   <div class="wrap">© 2026 Marvin Blaise C. Santos — built with HTML, CSS & JS.</div>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+    <div class="lightbox-caption"><span id="lightboxTitle"></span> — <span class="idx"><span id="lightboxIdx"></span></span></div>
+  </div>
+</div>
+
 <script>
   // mobile nav
   const menuBtn = document.getElementById('menuBtn');
@@ -853,6 +863,9 @@
         ph.className = 'placeholder';
         ph.textContent = 'no screenshot yet';
         media.appendChild(ph);
+      }
+      if(p.images && p.images.length){
+        media.addEventListener('click', () => openLightbox(p, 0));
       }
       if(p.isDraft){
         const badge = document.createElement('span');
